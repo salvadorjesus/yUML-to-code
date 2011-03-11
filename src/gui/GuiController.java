@@ -54,7 +54,10 @@ public class GuiController
 		} catch (TokenStreamException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		} catch (NullPointerException e)
+		{
+			//In case there are errors with the parser or three parser.
+		}
 		
 		
 		return ret;

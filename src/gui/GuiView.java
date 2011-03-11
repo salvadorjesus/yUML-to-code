@@ -21,6 +21,9 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Dimension;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 
@@ -80,6 +83,7 @@ public class GuiView {
 			genCodeJB.setPreferredSize(new Dimension(45, 30));
 			genCodeJB.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
+							messageJTA.setText("");
 							outputJTA.setText(GuiController.generateCode(inputJTA.getText()));
 				}
 			});
@@ -194,6 +198,15 @@ public class GuiView {
 			public void run() {
 				GuiView application = new GuiView();
 				application.getJFrame().setVisible(true);
+				
+				//Redirect starndand and error output
+				   PrintStream aPrintStream  = 
+					      new PrintStream(
+					        new FilteredStream(
+					          new ByteArrayOutputStream(),application.getMessageJTA()));
+				   System.setOut(aPrintStream);
+				   System.setErr(aPrintStream); 
+				   
 			}
 		});
 	}
