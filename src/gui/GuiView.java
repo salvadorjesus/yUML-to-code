@@ -26,6 +26,7 @@ import java.io.PrintStream;
 
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JToggleButton;
 
 public class GuiView {
 
@@ -39,6 +40,7 @@ public class GuiView {
 	private JScrollPane inputJSP = null;
 	private JScrollPane outputJSP = null;
 	private JSplitPane centerJSP = null;
+	private JSplitPane mainJSP = null;
 	/**
 	 * This method initializes jFrame
 	 * 
@@ -65,8 +67,7 @@ public class GuiView {
 			jContentPane = new JPanel();
 			jContentPane.setLayout(new BorderLayout());
 			jContentPane.add(getGenCodeJB(), BorderLayout.NORTH);
-			jContentPane.add(getMessageJSP(), BorderLayout.SOUTH);
-			jContentPane.add(getCenterJSP(), BorderLayout.CENTER);
+			jContentPane.add(getMainJSP(), BorderLayout.CENTER);
 		}
 		return jContentPane;
 	}
@@ -188,6 +189,22 @@ public class GuiView {
 			centerJSP.setRightComponent(getOutputJSP());
 		}
 		return centerJSP;
+	}
+
+	/**
+	 * This method initializes mainJSP	
+	 * 	
+	 * @return javax.swing.JSplitPane	
+	 */
+	private JSplitPane getMainJSP() {
+		if (mainJSP == null) {
+			mainJSP = new JSplitPane();
+			mainJSP.setOrientation(JSplitPane.VERTICAL_SPLIT);
+			mainJSP.setDividerLocation(225);
+			mainJSP.setBottomComponent(getMessageJSP());
+			mainJSP.setTopComponent(getCenterJSP());
+		}
+		return mainJSP;
 	}
 
 	/**
