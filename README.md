@@ -19,7 +19,6 @@ This program is a small school project to learn [Antlr](http://www.antlr.org/). 
 
 If you liked it, please let me know!
 
-
 If you disliked it because you found a bug, or you wish it to have another feature, please [fill in an issue] (https://github.com/salvadorjesus/yUML-to-code/issues). I don't plan to maintain this program or to make further development, but if I see some interest, I may well change my mind!
 
 Finally, if you hate it, I can only say that I will try harder next time! ;). Check out some of my [pics](https://profiles.google.com/salvadorjesus/photos/5481492753093488689)!
